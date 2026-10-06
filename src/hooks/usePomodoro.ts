@@ -50,6 +50,7 @@ export function usePomodoro() {
     const timerId = setInterval(() => {
       setTimeLeft((prevTime) => {
         if (prevTime <= 1) {
+          setIsRunning(false);
           return 0;
         }
         return prevTime - 1;

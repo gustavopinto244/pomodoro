@@ -59,6 +59,19 @@ describe('Testa as usabilidades do hook principal da aplicacao', () => {
 
       expect(result.current.timeLeft).toBe(1499);
     });
+    it('pausa o cronometro automaticamente quando o tempo zerar', () => {
+      const {result} = renderHook(() => usePomodoro());
+
+      act(() => {
+        result.current.start();
+      })
+      act(() => {
+        vi.advanceTimersByTime(1000*1500);
+      })
+
+      expect(result.current.timeLeft).toBe(0);
+      expect(result.current.isRunning).toBe(false);
+    })
     afterEach(() => {
         vi.useRealTimers();
     });
