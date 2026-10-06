@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Mode } from '../types/ModeType';
 
@@ -43,6 +43,23 @@ export function usePomodoro() {
       throw new Error('Modo invalido');
     }
   };
+
+  useEffect(() => {
+    if(!isRunning) return;
+
+    const timerId = setInterval(() => {
+      setTimeLeft((prevTime) => {
+        if (prevTime <= 1) {
+          return 0;
+        }
+        return prevTime - 1;
+      });
+    }, 1000);
+
+    return () => {
+      clearInterval(timerId);
+    }
+  }, [isRunning]);
 
   return {
     // Estados
