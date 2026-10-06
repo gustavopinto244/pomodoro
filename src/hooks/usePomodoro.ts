@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Mode } from '../types/ModeType';
+import type { Mode } from '../types/ModeType';
 
 const TempoPorModo: Record<Mode, number> = {
   pomodoro: 1500,

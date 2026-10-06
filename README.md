@@ -7,6 +7,7 @@
 ## 🛠️ Tecnologias
 
 - **React** & **TypeScript**
+- **Tailwind CSS**
 - **Vite**
 - **Vitest** & **React Testing Library**
 - **ESLint**

@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { vi } from 'vitest';
 
 import ModeSelector from './ModeSelector'
-import { Mode } from '../types/ModeType'
+import type { Mode } from '../types/ModeType'
 
 describe('selecionador de modos', () => {
   it('botao modo pomodoro', async () => {
